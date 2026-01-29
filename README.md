@@ -122,7 +122,7 @@ type Status = EnumValue<typeof Status>;
 | Random      | ❌          | ✅ `.random()` |
 | Bundle size | -           | ~500B          |
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
