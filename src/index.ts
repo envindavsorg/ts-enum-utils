@@ -13,12 +13,9 @@ type EnumMembers<T extends readonly string[]> = {
 
 export type Enum<T extends readonly string[]> = EnumBase<T> & EnumMembers<T>;
 
-export type EnumValue<E extends { values: readonly string[] }> =
-  E["values"][number];
+export type EnumValue<E extends { values: readonly string[] }> = E["values"][number];
 
-export const createEnum = <const T extends readonly string[]>(
-  values: T,
-): Enum<T> => {
+export const createEnum = <const T extends readonly string[]>(values: T): Enum<T> => {
   if (values.length === 0) {
     throw new Error("Enum must have at least one value");
   }
@@ -33,16 +30,13 @@ export const createEnum = <const T extends readonly string[]>(
   const base: EnumBase<T> = {
     values,
 
-    is: (value: unknown): value is T[number] =>
-      typeof value === "string" && valueSet.has(value),
+    is: (value: unknown): value is T[number] => typeof value === "string" && valueSet.has(value),
 
     assert: (value: unknown): T[number] => {
       if (typeof value === "string" && valueSet.has(value)) {
         return value as T[number];
       }
-      throw new Error(
-        `Invalid enum value: "${value}". Expected one of: ${values.join(", ")}`,
-      );
+      throw new Error(`Invalid enum value: "${value}". Expected one of: ${values.join(", ")}`);
     },
 
     random: (): T[number] => {
@@ -52,13 +46,10 @@ export const createEnum = <const T extends readonly string[]>(
 
     indexOf: (value: T[number]): number => values.indexOf(value),
 
-    at: (index: number): T[number] | undefined =>
-      values.at(index) as T[number] | undefined,
+    at: (index: number): T[number] | undefined => values.at(index) as T[number] | undefined,
   };
 
-  const members = Object.fromEntries(
-    values.map((v) => [v, v]),
-  ) as EnumMembers<T>;
+  const members = Object.fromEntries(values.map((v) => [v, v])) as EnumMembers<T>;
 
   return Object.freeze({ ...base, ...members }) as Enum<T>;
 };
