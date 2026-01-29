@@ -77,7 +77,7 @@ jobs:
           node -e "
             const fs = require('fs');
             const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
-            pkg.name = 'ts-safe-path';
+            pkg.name = 'ts-enum-utils';
             delete pkg.publishConfig;
             fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));
             console.log('Updated package.json for NPM registry');
