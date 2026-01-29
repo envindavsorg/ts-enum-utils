@@ -1,0 +1,63 @@
+{
+  "name": "ts-enum-utils",
+  "version": "1.0.0",
+  "description": "Type-safe runtime enums with built-in utilities for TypeScript",
+  "author": "Florin",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "prepublishOnly": "pnpm run lint && pnpm run test && pnpm run build",
+    "release": "pnpm run prepublishOnly && npm publish"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.0",
+    "@types/node": "^22.0.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  },
+  "keywords": [
+    "typescript",
+    "enum",
+    "type-safe",
+    "runtime",
+    "validation",
+    "utilities"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/florin/ts-enum-utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/florin/ts-enum-utils/issues"
+  },
+  "homepage": "https://github.com/florin/ts-enum-utils#readme",
+  "engines": {
+    "node": ">=18"
+  }
+}

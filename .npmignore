@@ -1,0 +1,7 @@
+src/
+*.test.ts
+*.config.ts
+biome.json
+tsconfig.json
+.gitignore
+coverage/
