@@ -29,5 +29,8 @@
       "semicolons": "always",
       "trailingCommas": "es5"
     }
-  }
+  },
+  "extends": [
+    "ultracite/biome/core"
+  ]
 }
