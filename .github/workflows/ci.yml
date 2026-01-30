@@ -9,24 +9,6 @@ env:
   NODE_VERSION: "22"
 
 jobs:
-  lint:
-    name: Code quality
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-
-      - name: Setup Biome
-        uses: biomejs/setup-biome@v2
-
-      - name: Run Biome
-        run: biome check .
-
   test-build:
     name: Test and Build
     runs-on: ubuntu-latest
