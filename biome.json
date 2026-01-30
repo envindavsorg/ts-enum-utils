@@ -1,8 +1,6 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "organizeImports": {
-    "enabled": true
-  },
+  "extends": ["ultracite/biome/core"],
   "linter": {
     "enabled": true,
     "rules": {
@@ -32,8 +30,5 @@
       "semicolons": "always",
       "trailingCommas": "es5"
     }
-  },
-  "files": {
-    "ignore": ["node_modules", "dist", "*.config.*", "package.json"]
   }
 }
