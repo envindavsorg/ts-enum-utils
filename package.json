@@ -20,9 +20,7 @@
       }
     }
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
@@ -43,14 +41,7 @@
     "typescript": "^5.6.0",
     "vitest": "^2.1.0"
   },
-  "keywords": [
-    "typescript",
-    "enum",
-    "type-safe",
-    "runtime",
-    "validation",
-    "utilities"
-  ],
+  "keywords": ["typescript", "enum", "type-safe", "runtime", "validation", "utilities"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/envindavsorg/ts-enum-utils.git"
