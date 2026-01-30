@@ -1,10 +1,5 @@
 # ts-enum-utils
 
-[![npm version](https://img.shields.io/npm/v/ts-enum-utils.svg)](https://www.npmjs.com/package/ts-enum-utils)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0%2B-blue)](https://www.typescriptlang.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Bundle Size](https://img.shields.io/bundlephobia/minzip/ts-enum-utils)](https://bundlephobia.com/package/ts-enum-utils)
-
 Type-safe runtime enums with built-in utilities for TypeScript.
 
 ## Why?

@@ -1,5 +1,5 @@
 import { describe, expect, expectTypeOf, it } from "vitest";
-import { type Enum, type EnumValue, createEnum } from "./index";
+import { createEnum, type Enum, type EnumValue } from "./index";
 
 describe("createEnum", () => {
   const Status = createEnum(["pending", "active", "archived"] as const);
@@ -58,9 +58,7 @@ describe("createEnum", () => {
     });
 
     it("throws for invalid input", () => {
-      expect(() => Status.assert("invalid")).toThrow(
-        'Invalid enum value: "invalid"',
-      );
+      expect(() => Status.assert("invalid")).toThrow('Invalid enum value: "invalid"');
       expect(() => Status.assert(null)).toThrow();
     });
   });
@@ -97,9 +95,7 @@ describe("createEnum", () => {
   describe("types", () => {
     it("EnumValue extracts union type", () => {
       type StatusType = EnumValue<typeof Status>;
-      expectTypeOf<StatusType>().toEqualTypeOf<
-        "pending" | "active" | "archived"
-      >();
+      expectTypeOf<StatusType>().toEqualTypeOf<"pending" | "active" | "archived">();
     });
 
     it("Enum type works correctly", () => {
