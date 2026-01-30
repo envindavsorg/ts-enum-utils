@@ -1,6 +1,14 @@
+&nbsp;
+
+![TypeScript](./public/ts-logo.svg)
+
+&nbsp;
+
 # ts-enum-utils
 
 Type-safe runtime enums with built-in utilities for TypeScript.
+
+&nbsp;
 
 ## Why?
 
@@ -12,6 +20,8 @@ TypeScript's native enums have issues:
 
 This library gives you **type-safe enums** with **runtime utilities** in ~30 lines.
 
+&nbsp;
+
 ## Installation
 
 ```bash
@@ -21,6 +31,8 @@ pnpm add ts-enum-utils
 # or
 yarn add ts-enum-utils
 ```
+
+&nbsp;
 
 ## Usage
 
@@ -38,6 +50,8 @@ Status.archived; // "archived"
 Status.values; // ["pending", "active", "archived"]
 ```
 
+&nbsp;
+
 ### Type Guard
 
 ```typescript
@@ -49,6 +63,8 @@ if (Status.is(userInput)) {
 }
 ```
 
+&nbsp;
+
 ### Validation with Error
 
 ```typescript
@@ -56,6 +72,9 @@ if (Status.is(userInput)) {
 const validated = Status.assert(untrustedData);
 // Returns the value if valid, throws otherwise
 ```
+
+&nbsp;
+
 
 ### Extract the Type
 
@@ -67,6 +86,8 @@ const updateStatus = (id: string, status: Status) => {
   // ...
 };
 ```
+
+&nbsp;
 
 ### Utilities
 
@@ -82,7 +103,11 @@ Status.at(0); // "pending"
 Status.at(-1); // "archived"
 ```
 
+&nbsp;
+
 ## API
+
+&nbsp;
 
 ### `createEnum(values)`
 
@@ -97,6 +122,8 @@ Creates a type-safe enum object.
 | `.indexOf(value)` | Returns the index of a value               |
 | `.at(index)`      | Returns value at index (supports negative) |
 
+&nbsp;
+
 ### `EnumValue<E>`
 
 Utility type to extract the union type from an enum.
@@ -105,6 +132,8 @@ Utility type to extract the union type from an enum.
 type Status = EnumValue<typeof Status>;
 // "pending" | "active" | "archived"
 ```
+
+&nbsp;
 
 ## Comparison
 
@@ -117,14 +146,17 @@ type Status = EnumValue<typeof Status>;
 | Random      | ❌          | ✅ `.random()` |
 | Bundle size | -           | ~500B          |
 
+&nbsp;
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-<div align="center">
 
-**[⭐ Star us on GitHub](https://github.com/envindavsorg/ts-enum-utils)** • **[📦 NPM Package](https://www.npmjs.com/package/ts-enum-utils)** • **[📚 Documentation](https://github.com/envindavsorg/ts-enum-utils#readme)**
+&nbsp;
 
-Made with ❤️ by Cuzeac Florin in Paris.
+**[⭐ Star me on GitHub](https://github.com/envindavsorg/ts-enum-utils)** • **[📦 NPM Package](https://www.npmjs.com/package/@envind/ts-enum-utils)** • **[📚 Documentation](https://github.com/envindavsorg/ts-enum-utils#readme)**
 
-</div>
+&nbsp;
+
+Made with ❤️ by Florin Cuzeac
