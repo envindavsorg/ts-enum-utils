@@ -1,5 +1,5 @@
 {
-  "name": "@envindavsorg/ts-enum-utils",
+  "name": "@envind/ts-enum-utils",
   "version": "1.0.0",
   "description": "Type-safe runtime enums with built-in utilities for TypeScript",
   "author": "Florin Cuzeac",
@@ -23,9 +23,6 @@
   "files": [
     "dist"
   ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",

@@ -37,7 +37,7 @@ jobs:
         run: pnpm build
 
       - name: Publish to GitHub Packages
-        run: pnpm publish --no-git-checks
+        run: pnpm publish --no-git-checks --registry https://npm.pkg.github.com
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -45,6 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      id-token: write
 
     steps:
       - name: Checkout code
@@ -71,19 +72,5 @@ jobs:
       - name: Build package
         run: pnpm build
 
-      - name: Update package.json for NPM Registry
-        run: |
-          # Use Node.js to safely modify package.json for NPM registry
-          node -e "
-            const fs = require('fs');
-            const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
-            pkg.name = 'ts-enum-utils';
-            delete pkg.publishConfig;
-            fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));
-            console.log('Updated package.json for NPM registry');
-          "
-
       - name: Publish to NPM
-        run: pnpm publish --access public --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm publish --access public --no-git-checks --provenance --registry https://registry.npmjs.org
