@@ -1,14 +1,6 @@
-&nbsp;
-
-![TypeScript](./public/ts-logo.svg)
-
-&nbsp;
-
 # ts-enum-utils
 
 Type-safe runtime enums with built-in utilities for TypeScript.
-
-&nbsp;
 
 ## Why?
 
@@ -20,24 +12,16 @@ TypeScript's native enums have issues:
 
 This library gives you **type-safe enums** with **runtime utilities** in ~30 lines.
 
-&nbsp;
-
 ## Installation
 
 ```bash
-npm install ts-enum-utils
-# or
-pnpm add ts-enum-utils
-# or
-yarn add ts-enum-utils
+pnpm add @envind/ts-enum-utils
 ```
-
-&nbsp;
 
 ## Usage
 
 ```typescript
-import { createEnum, type EnumValue } from "ts-enum-utils";
+import { createEnum, type EnumValue } from "@envind/ts-enum-utils";
 
 const Status = createEnum(["pending", "active", "archived"] as const);
 
@@ -50,8 +34,6 @@ Status.archived; // "archived"
 Status.values; // ["pending", "active", "archived"]
 ```
 
-&nbsp;
-
 ### Type Guard
 
 ```typescript
@@ -63,8 +45,6 @@ if (Status.is(userInput)) {
 }
 ```
 
-&nbsp;
-
 ### Validation with Error
 
 ```typescript
@@ -72,9 +52,6 @@ if (Status.is(userInput)) {
 const validated = Status.assert(untrustedData);
 // Returns the value if valid, throws otherwise
 ```
-
-&nbsp;
-
 
 ### Extract the Type
 
@@ -86,8 +63,6 @@ const updateStatus = (id: string, status: Status) => {
   // ...
 };
 ```
-
-&nbsp;
 
 ### Utilities
 
@@ -103,11 +78,7 @@ Status.at(0); // "pending"
 Status.at(-1); // "archived"
 ```
 
-&nbsp;
-
 ## API
-
-&nbsp;
 
 ### `createEnum(values)`
 
@@ -122,8 +93,6 @@ Creates a type-safe enum object.
 | `.indexOf(value)` | Returns the index of a value               |
 | `.at(index)`      | Returns value at index (supports negative) |
 
-&nbsp;
-
 ### `EnumValue<E>`
 
 Utility type to extract the union type from an enum.
@@ -133,30 +102,17 @@ type Status = EnumValue<typeof Status>;
 // "pending" | "active" | "archived"
 ```
 
-&nbsp;
-
 ## Comparison
 
 | Feature     | Native Enum | ts-enum-utils  |
 | ----------- | ----------- | -------------- |
-| Type-safe   | ✅          | ✅             |
-| Iterable    | ❌          | ✅ `.values`   |
-| Type guard  | ❌          | ✅ `.is()`     |
-| Validation  | ❌          | ✅ `.assert()` |
-| Random      | ❌          | ✅ `.random()` |
+| Type-safe   | Yes         | Yes            |
+| Iterable    | No          | Yes `.values`  |
+| Type guard  | No          | Yes `.is()`    |
+| Validation  | No          | Yes `.assert()`|
+| Random      | No          | Yes `.random()`|
 | Bundle size | -           | ~500B          |
-
-&nbsp;
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-
-&nbsp;
-
-**[⭐ Star me on GitHub](https://github.com/envindavsorg/ts-enum-utils)** • **[📦 NPM Package](https://www.npmjs.com/package/@envind/ts-enum-utils)** • **[📚 Documentation](https://github.com/envindavsorg/ts-enum-utils#readme)**
-
-&nbsp;
-
-Made with ❤️ by Florin Cuzeac
+MIT

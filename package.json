@@ -28,16 +28,15 @@
     "dev": "tsup --watch",
     "test": "vitest run",
     "test:watch": "vitest",
-    "lint": "biome check .",
-    "lint:fix": "biome check --fix --unsafe",
-    "format": "biome format --write .",
+    "lint": "oxlint src/",
+    "lint:fix": "oxlint --fix src/",
+    "format": "oxfmt --write src/",
     "prepublishOnly": "pnpm run test && pnpm run build",
-    "check": "ultracite check",
-    "fix": "ultracite fix"
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.3.13",
-    "@types/node": "^25.2.0",
+    "oxfmt": "^0.41.0",
+    "oxlint": "^1.56.0",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3",
     "vitest": "^4.0.18"
@@ -61,5 +60,8 @@
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "pnpm@10.28.2"
+  "packageManager": "pnpm@10.28.2",
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
+  }
 }
